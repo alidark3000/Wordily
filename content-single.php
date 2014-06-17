@@ -35,8 +35,8 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-			 <?php the_time('F j, Y'); ?>
-	 <span class="sep">|</span>
+		<?php the_time('F j, Y'); ?>
+	 	<span class="sep">|</span>
 		<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 			<?php
 				/* translators: used between list items, there is a space after the comma */
@@ -53,12 +53,18 @@
 <!-- COMMENTS -->
 
 <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-		
-		<span class="comments-link"><?php comments_popup_link( __( '', 'simple-content' ), __( '<span class="sep">|</span>1 Comment', 'simple-content' ), __( '<span class="sep">|</span> % Comments', 'simple-content' ) ); ?></span>
+
+<?php if (get_comments_number()==0) : ?>
+<?php else : ?>
+    <span class="sep">|</span> 
+<?php endif; ?>
+
+<span class="comments-link"><?php comments_popup_link( __( '', 'simple-content' ), __( '1 Comment', 'simple-content' ), __( ' % Comments', 'simple-content' ) ); ?></span>
 		<?php endif; ?>
 
 
-			
+<!-- TAGS -->
+	
 			<?php
 				/* translators: used between list items, there is a space after the comma */
 				$tags_list = get_the_tag_list( '', __( ', ', 'simple-content' ) );
@@ -71,8 +77,12 @@
 			<?php endif; // End if $tags_list ?>
 		<?php endif; // End if 'post' == get_post_type() ?>
 
-		
+<!-- EDIT LINK -->		
 
-		<?php edit_post_link( __( '<span class="sep">|</span> Edit', 'simple-content' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php if ( current_user_can('edit_post') ) : ?>
+			<span class="sep">|</span>
+		<?php endif; ?>
+
+		<?php edit_post_link( __( 'Edit', 'simple-content' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
