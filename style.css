@@ -146,7 +146,7 @@ a img {
 	article .entry-content img.wide, article .entry-content img.size-large {
 		width: calc(100% + 4em);
 		max-width: calc(100% + 4em);
-		margin: 2em 0 2em -2em;
+		margin: 1em 0 1em -2em;
 	}
 }
 
@@ -820,6 +820,7 @@ a.toggler {
 	margin-left: 1.5em;
 }
 
+
 .entry-content ul li, .entry-content ol li {
 	line-height: 1.3;
 	font-size: 0.95em;
@@ -1306,6 +1307,7 @@ object {
 	font-family: 'Open Sans', sans-serif;
 }
 .wp-caption .wp-caption-text {
+	color: #999;
 }
 
 .entry-content figure, .wp-caption {
