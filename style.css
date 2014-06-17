@@ -157,7 +157,7 @@ a img {
 	article .entry-content .wide {
 		width: calc(100% + 2em);
 		max-width: calc(100% + 2em);
-		margin: 1em 0 1em -1em;
+		margin: 0em 0 0em -1em;
 	}
 
 	
@@ -819,7 +819,7 @@ a.toggler {
 }
 
 .entry-content ul, .entry-content ol {
-	margin-left: 1.5em;
+	margin: 1em 0 1em 1.5em;
 }
 
 

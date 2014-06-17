@@ -164,3 +164,14 @@ function wide($atts, $content = null) {
     return '<div class="wide">'.do_shortcode($content).'</div>';
 }
 add_shortcode('wide', 'wide');
+
+/**
+ * Add editor stylesheet. Not doing much with it, just to prevent huge images.
+ *
+ */
+
+
+function my_theme_add_editor_styles() {
+    add_editor_style( 'editor-style.css' );
+}
+add_action( 'init', 'my_theme_add_editor_styles' );
