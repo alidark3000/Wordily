@@ -154,3 +154,13 @@ function simple_content_get_footer_credits() {
 		sprintf( __( 'Themed by %1$s, empowered by %2$s.', 'simple_content' ), '<a href="' . esc_url( 'http://alidark.com/clean-content' ) . '" rel="designer" title="Clean Content, a simple reader focused theme">Clean Content</a>', '<a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>' )
 	);
 }
+
+/**
+ * Add shortcode for wide images
+ *
+ */
+
+function wide($atts, $content = null) {
+    return '<div class="wide">'.do_shortcode($content).'</div>';
+}
+add_shortcode('wide', 'wide');
