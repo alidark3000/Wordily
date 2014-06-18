@@ -45,13 +45,79 @@ function simple_content_setup() {
 
 	add_theme_support( 'post-thumbnails' );
 
-	// Increase default size for large images
+	// Add 'retina' image size
 
-	update_option('large_size_w', 1200);
-	update_option('large_size_h', 1200);
+	add_image_size( 'extra-large', 1200, 1200 );
 
+
+	
+	// change compression by image size. 
+	// Thanks Amanda Duke http://wordpress.stackexchange.com/questions/74103/set-jpeg-compression-for-specific-custom-image-sizes
+	
 	// decrease jpeq quality for retina images
-	add_filter( 'jpeg_quality', create_function( '', 'return 51;' ) );
+
+
+	register_activation_hook(__FILE__, 'ad_modify_jpeg_quality');
+
+	function ad_modify_jpeg_quality() {
+
+	    $attachments = get_posts(array(
+	        'numberposts' => -1,
+	        'post_type' => 'attachment',
+	        'post_mime_type' => 'image/jpeg'
+	    ));
+
+	    if (empty($attachments)) return;
+
+	    $uploads = wp_upload_dir();
+
+	    foreach ($attachments as $attachment) {
+
+	        $attach_meta = wp_get_attachment_metadata($attachment->ID);
+	        if (!is_array($attach_meta['sizes'])) break;
+
+	        $pathinfo = pathinfo($attach_meta['file']);
+	        $dir = $uploads['basedir'] . '/' . $pathinfo['dirname'];
+
+	        foreach ($attach_meta['sizes'] as $size => $value) {
+
+	            $image = $dir . '/' . $value['file'];
+	            $resource = imagecreatefromjpeg($image);
+
+	            if ($size == 'extra-large') {
+	                // set the jpeg quality for 'spalsh' size
+	                imagejpeg($resource, $image, 51);
+	            } else {
+	                // set the jpeg quality for the rest of sizes
+	                imagejpeg($resource, $image, 71);
+	            }
+
+	            imagedestroy($resource);
+	        }
+	    }
+	}
+
+	// insert custm size into post
+		// thanks kucrut http://kucrut.org/insert-image-with-custom-size-into-post/
+	
+	function my_insert_custom_image_sizes( $sizes ) {
+	  global $_wp_additional_image_sizes;
+	  if ( empty($_wp_additional_image_sizes) )
+	    return $sizes;
+
+	  foreach ( $_wp_additional_image_sizes as $id => $data ) {
+	    if ( !isset($sizes[$id]) )
+	      $sizes[$id] = ucfirst( str_replace( '-', ' ', $id ) );
+	  }
+
+	  return $sizes;
+	}
+	add_filter( 'image_size_names_choose', 'my_insert_custom_image_sizes' );
+	
+	
+	
+
+
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
