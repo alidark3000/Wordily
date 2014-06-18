@@ -39,7 +39,7 @@ function mytheme_customize_css()
          <style type="text/css">
              a, a:visited, .main-navigation a, .main-navigation a:visited { color:<?php echo get_theme_mod('link_color'); ?>; }
                 @media (min-width: 800px) { a:hover, .main-navigation a:hover {color: #000;} }
-             #commentform .form-submit input, .nav-links a, a.toggler, button, input[type="button"], input[type="reset"], input[type="submit"] { background:<?php echo get_theme_mod('link_color'); ?>; }
+             #commentform .form-submit input, .nav-links a, a.toggler, button, input[type="button"], input[type="reset"], input[type="submit"], #respond h3 small a { background:<?php echo get_theme_mod('link_color'); ?>; }
                @media (max-width: 400px) {  .main-navigation a {background:<?php echo get_theme_mod('link_color'); ?>;}}
 
          </style>

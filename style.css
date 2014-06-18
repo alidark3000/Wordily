@@ -460,6 +460,12 @@ a, a:visited, button {
 	text-decoration: none;
 }
 
+a, button, a.img, a:hover, #submit, button:hover, a.img:hover, #submit:hover {
+		-webkit-transition: all 0.15s ease-in-out;
+		-moz-transition: all 0.15s ease-in-out;
+		-o-transition: all 0.15s ease-in-out;
+		transition: all 0.15s ease-in-out;
+}
 
 
 @media (min-width: 800px) {
