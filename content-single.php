@@ -59,7 +59,7 @@
     <span class="sep">|</span> 
 <?php endif; ?>
 
-<span class="comments-link"><?php comments_popup_link( __( '', 'simple-content' ), __( '1 Comment', 'simple-content' ), __( ' % Comments', 'simple-content' ) ); ?></span>
+<span class="comments-link"><?php comments_popup_link( '', __( '1 Comment', 'simple-content' ), __( ' % Comments', 'simple-content' ) ); ?></span>
 		<?php endif; ?>
 
 
