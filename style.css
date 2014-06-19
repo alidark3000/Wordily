@@ -1028,13 +1028,13 @@ line-height: 1.2;
 	background: #f7f7f7;
 }
 
-.reply-title {
+h3#reply-title {
+	font-size: 2em;
+	margin: 1em 0 0;
 }
 
-#respond h3 { 
-	font-size: 1.5em;
-	margin: 1em 0;
-
+p.logged-in-as {
+		margin: 0.3em 0;
 }
 
 	#respond h3 small {
