@@ -190,7 +190,7 @@ textarea {
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 900;
+	font-weight: 100;
 }
 
 .site-title a, .entry-title, .page-title {
@@ -755,8 +755,8 @@ a.toggler {
 	width: 100%;
 }
 
-.blog, .hentry:first-child, .archive .hentry:first-child {
- margin-top: 1em;
+.hentry:first-child, .archive .hentry:first-child {
+// margin-top: 1em;
 }
 
 .sep {
@@ -821,6 +821,8 @@ a.toggler {
 	.entry-content p, .entry-content ul, .entry-content blockquote, .entry-content ol {
 	font-size: 1.15em;
 	margin: 1.5em 0;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialisaed;
 	}
 }
 
