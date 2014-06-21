@@ -9,10 +9,9 @@
  * Set the content width based on the theme's design and stylesheet.
  
  */
-	//  I DON'T WANT TO. MAYBE LATER.
-		// if ( ! isset( $content_width ) ) {
-		// 	$content_width = 678; /* pixels */
-		// }
+		 if ( ! isset( $content_width ) ) {
+		 	$content_width = 1000; /* pixels */
+		 }
 
 
 
