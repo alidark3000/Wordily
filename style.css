@@ -143,21 +143,34 @@ a img {
 	#page {
 		padding: 2em; 
 	}
-	article .entry-content .wide {
+	article .entry-content .wide, .blog .sticky, archive .sticky {
 		width: calc(100% + 4em);
 		max-width: calc(100% + 4em);
-		margin: 1em 0 1em -2em;
+		margin: 1.5em 0 1.5em -2em;
 	}
+	.blog .sticky, archive .sticky {
+		width: calc(100% + 4em) !important;
+		padding: 1em 2em;
+		margin: 2em 0 2em -2em !important;
+	}
+
+
 }
 
 @media (max-width:400px) {
 	#page {
 		padding: 1em; 
 	}
-	article .entry-content .wide {
+	article .entry-content .wide, .blog .sticky, archive .sticky {
 		width: calc(100% + 2em);
 		max-width: calc(100% + 2em);
 		margin: 0em 0 0em -1em;
+	}
+	
+	.blog .sticky, archive .sticky {
+		width: calc(100% + 6em) !important;
+		padding: 0 1em ;
+		margin: 2em 0 2em -1em !important;
 	}
 
 	
@@ -167,7 +180,13 @@ a img {
 	article .entry-content .wide {
 		width: calc(100% + 6em);
 		max-width: calc(100% + 6em);
-		margin: 1em 0 1em -3em;
+		margin: 1.5em 0 1.5em -3em;
+	}
+	
+	.blog .sticky, archive .sticky {
+		width: calc(100% + 6em) !important;
+		padding: 1em 3em;
+		margin: 2em 0 2em -3em !important;
 	}
 
 }
@@ -741,6 +760,7 @@ a.toggler {
 10.1 Posts and pages
 --------------------------------------------------------------*/
 .sticky {
+	background: #f7f7f7;
 }
 #content {
 	margin: 1em 0;
@@ -820,7 +840,7 @@ a.toggler {
    }
 	.entry-content p, .entry-content ul, .entry-content blockquote, .entry-content ol {
 	font-size: 1.15em;
-	margin: 1em 0;
+	margin: 1.5em 0;
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
 	}
@@ -828,21 +848,34 @@ a.toggler {
 
 .entry-content ul, .entry-content ol {
 	margin: 1.5em 0 1.5em 1.5em;
+	font-size: 20px;
 }
 
 
 .entry-content ul li, .entry-content ol li {
 	line-height: 1.3;
-	font-size: 0.95em;
 	margin: 0.7em 0;
 }
 
+.entry-content li {
+  line-height: 1.2;
+  margin: 0.4em 0;
+}
+
+.entry-content ul ul, .entry-content ol ol {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	font-size: 1em;
+}
+
+<!--
 .entry-content ul li:first-child, .entry-content ol li:first-child {
 	margin-top: 0;
 }
 .entry-content ul li:last-child, .entry-content ol li:last-child {
 	margin-bottom: 0;
 }
+-->
 
 .single .entry-summary {
   font-size: 1em;
@@ -860,11 +893,13 @@ a.toggler {
 
 
 blockquote {
-  margin: 1em 0;
-  padding: 1em;
+  margin: 1.5em 0;
+  padding: 1.5em;
   font-family: 'Open Sans', serif;
   color: #333;
-  font-size: 0.9em;
+}
+.entry-content blockquote p {
+	font-size: 20px;
 }
 
 blockquote footer {
@@ -872,11 +907,11 @@ blockquote footer {
 	font-style: italic;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 500px) {
 	blockquote {
-		width: 768px;
-		margin-left: -50px !important;
-		padding: 2em 50px;
+		width: calc(100% + 6em);
+		margin-left: -3em !important;
+		padding: 1.5em 3em;
 		background: #f7f7f7;
 	}
 }
@@ -930,10 +965,6 @@ line-height: 1.2;
 
 
 
-.entry-content li {
-  line-height: 1.2;
-  margin: 0.4em 0;
-}
 
 
 
@@ -944,9 +975,15 @@ line-height: 1.2;
  margin-bottom: 0;
 }
 
+.entry-content h1 {
+ font-size: 2.3em;
+  margin: 1em 0 0.5em;
+  line-height: 1;
+}
+
 .entry-content h2 {
  font-size: 2em;
-  margin: 1em 0 0;
+  margin: 1em 0 0.65em;
   line-height: 1;
 }
 
@@ -955,7 +992,7 @@ line-height: 1.2;
 
 .entry-content h3 {
  font-size: 1.7em;
- margin: 1em 0 0;
+ margin: 1em 0 0.7em;
  line-height: 1;
 }
 
