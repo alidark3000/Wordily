@@ -209,14 +209,14 @@ require get_template_directory() . '/inc/jetpack.php';
 
 /**
  * Returns the theme's footer credits
- *
+ *  Thanks to Raam Dev - http://raamdev.com
  * @return string
  *
  */
 function simple_content_get_footer_credits() {
 	return sprintf(
 		'%1$s',
-		sprintf( __( 'Themed by %1$s, empowered by %2$s.', 'simple_content' ), '<a href="' . esc_url( 'http://alidark.com/clean-content' ) . '" rel="designer" title="Clean Content, a simple reader focused theme">Clean Content</a>', '<a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>' )
+		sprintf( __( 'Themed by %1$s, empowered by %2$s.', 'simple_content' ), '<a href="' . esc_url( 'http://alidark.com/wordily' ) . '" rel="designer" title="Wordily, a simple content focused theme for WordPress">Wordily</a>', '<a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>' )
 	);
 }
 
