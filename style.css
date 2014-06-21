@@ -611,7 +611,7 @@ a.toggler {
 		width: 100%;
 		margin: 1em 0 0 0;
 		will-change: transform;
-	}
+		}
 	.main-navigation li {
 		width: 100%;
 	}
